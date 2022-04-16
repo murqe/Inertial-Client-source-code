@@ -1,0 +1,94 @@
+package wtf.rich.api.event.event;
+
+import java.util.function.Consumer;
+import wtf.rich.api.event.Event;
+
+public class EventPlayerMotionUpdate extends Event {
+     protected float _yaw;
+     protected float _pitch;
+     protected double x;
+     protected double y;
+     protected double z;
+     protected boolean onGround;
+     private Consumer _funcToCall = null;
+     private boolean _isForceCancelled;
+
+     public EventPlayerMotionUpdate(double posX, double posY, double posZ, boolean pOnGround) {
+          this.x = posX;
+          this.y = posY;
+          this.z = posZ;
+          this.onGround = pOnGround;
+     }
+
+     public Consumer getFunc() {
+          return this._funcToCall;
+     }
+
+     public void setFunct(Consumer post) {
+          this._funcToCall = post;
+     }
+
+     public float getYaw() {
+          return this._yaw;
+     }
+
+     public void setYaw(float yaw) {
+          this._yaw = yaw;
+     }
+
+     public float getPitch() {
+          return this._pitch;
+     }
+
+     public void setPitch(float pitch) {
+          this._pitch = pitch;
+     }
+
+     public void setYaw(double yaw) {
+          this._yaw = (float)yaw;
+     }
+
+     public void setPitch(double pitch) {
+          this._pitch = (float)pitch;
+     }
+
+     public void forceCancel() {
+          this._isForceCancelled = true;
+     }
+
+     public boolean isForceCancelled() {
+          return this._isForceCancelled;
+     }
+
+     public void setX(double posX) {
+          this.x = posX;
+     }
+
+     public void setY(double d) {
+          this.y = d;
+     }
+
+     public void setZ(double posZ) {
+          this.z = posZ;
+     }
+
+     public void setOnGround(boolean b) {
+          this.onGround = b;
+     }
+
+     public double getX() {
+          return this.x;
+     }
+
+     public double getY() {
+          return this.y;
+     }
+
+     public double getZ() {
+          return this.z;
+     }
+
+     public boolean getOnGround() {
+          return this.onGround;
+     }
+}
